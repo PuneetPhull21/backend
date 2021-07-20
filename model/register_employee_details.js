@@ -1,0 +1,49 @@
+module.exports = (sequelize,Sequelize)=>{
+    const register_employee_details = sequelize.define('registered_employee_details',{
+        employee_details_id:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        primaryKey:true,
+        autoIncrement:true
+        },
+        id:{
+           type:Sequelize.INTEGER,
+           allowNull:false
+        },
+        contact:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        },
+        nationality:{
+          type:Sequelize.STRING,
+          allowNull:false
+        },
+        state:{
+            type:Sequelize.STRING,
+            allowNull:false,
+        },
+        hometown:{
+            type:Sequelize.STRING,
+            allowNull:false
+        },
+        currentlocation:{
+            type:Sequelize.STRING,
+            allowNull:false
+        },
+        qualification:{
+          type:Sequelize.STRING,
+          allowNull:false
+        },
+        experience:{
+            type:Sequelize.STRING,
+            allowNull:false
+        },
+        technologys:{
+            type:Sequelize.STRING,
+            allowNull:false
+        }
+    },{
+        timestamps:false
+    })
+     return register_employee_details;
+}
