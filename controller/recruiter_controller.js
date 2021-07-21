@@ -184,7 +184,7 @@ module.exports.deletejobpost = async (req,res)=>{
 
 module.exports.postedjobs = async (req,res)=>{
     try{
-        const details = await recruiter_jobpost.findAll({where:{id:req.params.id}});
+        const details = await recruiter_jobpost.findAll({where:{id:id.id}});
         return res.send({
             status:200,
             data:details,

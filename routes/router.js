@@ -36,6 +36,9 @@ approuter.get('/profile',verify.verfiytoken,controller.fulldetails);
 
 approuter.post('/applied/jobs',verify.verfiytoken,controller.appliedjobs);
 
+//applied of user
+approuter.get('/all_applied_jobs',verify.verfiytoken,controller.userappliedjobs);
+
 //login with google api 
 
 

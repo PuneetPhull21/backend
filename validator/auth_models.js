@@ -29,9 +29,8 @@ const update_employee = joi.object({
 })
 
 const auth_applied_jobs = joi.object({
-    employee_id:joi.number().required(),
     recruiter_id:joi.number().required(),
-    job_role:joi.string().required(),
+    Applied_role:joi.string().required(),
     experience:joi.string().required(),
     skills:joi.string().required(),
     job_location:joi.string().required(),

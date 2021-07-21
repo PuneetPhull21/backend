@@ -237,10 +237,12 @@ module.exports.display = async (req, res) => {
 // applied job entry
 
 module.exports.appliedjobs = async (req,res)=>{
+  console.log(id.id);
   try{
 const valid = await auth_applied_jobs.validateAsync(req.body);
+console.log(valid);
 const details = {
-job_role:valid.job_role,
+Applied_role:valid.Applied_role,
 experience:valid.experience,
 skills:valid.skills,
 job_location:valid.job_location,
@@ -266,3 +268,26 @@ catch(error){
  })
 }
 }
+
+
+//get applied jobs of single user
+
+
+exports.userappliedjobs = async (req, res) => {
+  try {
+    const details = await applied_jobs.findAll({
+     where: { employee_id: id.id }
+    });
+    return res.status(200).send({
+      status: 200,
+      message: "all the applied jobs of user",
+      data: details,
+    });
+  } catch (error) {
+    return res.status(401).send({
+      status: 401,
+      messgae: "there is some error",
+      error: error,
+    });
+  }
+};

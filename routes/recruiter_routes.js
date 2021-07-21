@@ -28,7 +28,7 @@ approuter.put('/update/jobpost/:job_id',controller.updatejobpost);
 
 //jobs posted by single recruiter
 
-approuter.get('/postedjobs/:id',verfiytoken.verfiytoken,controller.postedjobs);
+approuter.get('/postedjobs',verfiytoken.verfiytoken,controller.postedjobs);
 
 //delete the single job post 
 
