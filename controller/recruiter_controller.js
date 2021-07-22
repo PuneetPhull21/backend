@@ -2,6 +2,8 @@ const  db =require('../model');
 
 const registered_recruiters = db.register_recruiter_model;
 const recruiter_jobpost = db.recruiter_jobpost_model;
+const applied_jobs = db.Applied_jobs;
+const  registered_employee_data_model = db.register_employee_model;
 
 const {auth_recruiter_register,auth_recruiter_update, auth_recruiter_jobpost} = require('../validator/recruiter_auth_models');
 
@@ -237,3 +239,23 @@ exports.reclogin = async(req,res,next)=>{
     })(req,res,next);
   }
 
+//jobseskers list api 
+
+exports.jobseekers = async (req,res)=>{
+    try{
+    const details = await applied_jobs.findOne({where:{recruiter_id:id.id},
+        include:registered_employee_data_model});
+    return res.status(200).send({
+        status:200,
+        message:"all the job seekers",
+        data:details
+    })
+}
+catch(error){
+    return res.status(404).send({
+        status:400,
+        message:"there is some error",
+        error:error
+    })
+}
+}

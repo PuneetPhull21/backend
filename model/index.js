@@ -49,6 +49,8 @@ db.Applied_jobs = require('./applied_jobs')(sequelize,Sequelize);
 db.register_employee_model.hasMany(db.Applied_jobs,{foreignKey: 'employee_id', targetKey :'id'});
 db.register_recruiter_model.hasMany(db.Applied_jobs,{foreignKey: 'recruiter_id', targetKey :'id'});
 
+db.Applied_jobs.belongsTo(db.register_employee_model,{foreignKey: 'employee_id'})
+
 
 //relation in recuritermodel & job_posts has has many 
 

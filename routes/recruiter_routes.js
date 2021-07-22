@@ -5,7 +5,6 @@ const approuter  = express.Router();
 
 const controller = require('../controller/recruiter_controller');
 
-const JWTverfiytoken = require('../middleware/verify_recruiter_token');
 const employetoken = require('../middleware/JWTverfiytoken,');
 
 //import verify recruiter
@@ -40,6 +39,10 @@ approuter.delete('/delete/jobpost/:job_id',controller.deletejobpost);
 approuter.get('/jobslist',employetoken.verfiytoken,controller.alljobs);
 
 approuter.post('/login',passport.authenticate('local-recuriter'),controller.reclogin);
+
+// jobseekers api 
+
+approuter.get('/jobseekers',verfiytoken.verfiytoken,controller.jobseekers);
 
 
 module.exports = approuter;

@@ -53,6 +53,6 @@ approuter.get('/auth/google/callback',passport.authenticate('google',{failureRed
      })
 })
 
-approuter.get('/display',controller.display);
+approuter.get('/display',verify.verfiytoken,controller.display);
 
 module.exports = approuter;

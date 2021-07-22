@@ -219,7 +219,7 @@ exports.fulldetails = async (req, res) => {
 };
 
 module.exports.display = async (req, res) => {
-  const details = await registered_employee_data_model.findAll();
+  const details = await registered_employee_data_model.findAll({where:{id:id.id}});
   try {
     return res.status(200).send({
       status: 200,
