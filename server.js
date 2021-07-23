@@ -14,8 +14,8 @@ db.sequelize.sync();
 require('./config/local_passport_recruiter');
 const bodyparser = require("body-parser");
 
-const app = express();
 
+const app = express();
 var corsOptions = {
   origin: "*",
 };

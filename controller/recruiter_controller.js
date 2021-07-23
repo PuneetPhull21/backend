@@ -67,7 +67,7 @@ exports.register_recruiter_update = async (req,res)=>{
           mobile_number:valid.mobile_number,
           company_website:valid.company_website,
       }
-      registered_recruiters.update(details,{where:{id:req.params.id}});
+      registered_recruiters.update(details,{where:{id:id.id}});
           return res.status(200).send({
               status:200,
               message:"recruiter is updated",
@@ -259,3 +259,23 @@ catch(error){
     })
 }
 }
+
+//profile api of recuriter
+exports.fulldetailsrecruiter = async (req, res) => {
+    try {
+      const details = await registered_recruiters.findAll({
+        where: { id: id.id }
+      });
+      return res.status(200).send({
+        status: 200,
+        message: "full details of Recruiter",
+        data: details,
+      });
+    } catch (error) {
+      return res.status(401).send({
+        status: 401,
+        messgae: "there is some error",
+        error: error,
+      });
+    }
+  };

@@ -14,7 +14,7 @@ approuter.post('/register/recruiter',controller.register_recruiter_model);
 
 //update the recruiter details
 
-approuter.put('/update/recruiter/:id',controller.register_recruiter_update);
+approuter.put('/update/recruiter',verfiytoken.verfiytoken,controller.register_recruiter_update);
 
 //delete the recruiter
 approuter.delete('/delete/recruiter/:id',controller.delete_recruiter);
@@ -34,6 +34,7 @@ approuter.get('/postedjobs',verfiytoken.verfiytoken,controller.postedjobs);
 
 approuter.delete('/delete/jobpost/:job_id',controller.deletejobpost);
 
+approuter.get('/profile',verfiytoken.verfiytoken,controller.fulldetailsrecruiter);
 
 //list of all the users
 approuter.get('/jobslist',employetoken.verfiytoken,controller.alljobs);
