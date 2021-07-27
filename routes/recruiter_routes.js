@@ -32,7 +32,7 @@ approuter.get('/postedjobs',verfiytoken.verfiytoken,controller.postedjobs);
 //delete the single job post 
 
 
-approuter.delete('/delete/jobpost/:job_id',controller.deletejobpost);
+approuter.delete('/delete/jobpost/:job_id',verfiytoken.verfiytoken,controller.deletejobpost);
 
 approuter.get('/profile',verfiytoken.verfiytoken,controller.fulldetailsrecruiter);
 

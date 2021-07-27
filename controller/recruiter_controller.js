@@ -243,8 +243,8 @@ exports.reclogin = async(req,res,next)=>{
 
 exports.jobseekers = async (req,res)=>{
     try{
-    const details = await applied_jobs.findOne({where:{recruiter_id:id.id},
-        include:registered_employee_data_model});
+    const details = await applied_jobs.findAll({where:{recruiter_id:id.id},
+        include: await registered_employee_data_model});
     return res.status(200).send({
         status:200,
         message:"all the job seekers",

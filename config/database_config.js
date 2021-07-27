@@ -1,4 +1,4 @@
-require('dotenv').config({path:"../env/.env"});
+require('dotenv').config({path:'./env2/.env'});
 const mysql_host = process.env.HOST || "localhost";
 const mysql_user = process.env.USER || "root";
 const mysql_password = process.env.PASSWORD || ""; 

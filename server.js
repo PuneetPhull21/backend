@@ -14,7 +14,6 @@ db.sequelize.sync();
 require('./config/local_passport_recruiter');
 const bodyparser = require("body-parser");
 
-
 const app = express();
 var corsOptions = {
   origin: "*",
@@ -26,9 +25,11 @@ app.use(
     secret: "SECRET",
   })
 );
-
+console.log(process.env.mysql_PORT);
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(express.static(__dirname + '/assets/images'))
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
